@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About K12PROJECT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* About page specific styles */
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    .about-hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .about-hero h2 {
+      font-size: 2.5rem;
+      color: #0073e6;
+      margin-bottom: 1rem;
+    }
+    
+    .about-hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .vision-mission {
+      background-color: #f8f9fa;
+      border-radius: 15px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    
+    .vision-mission h3 {
+      font-size: 1.8rem;
+      color: #0073e6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .vision-mission h3:after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background-color: #0073e6;
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .vision-mission p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    
+    .about-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .about-section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .about-section:hover {
+      transform: translateY(-10px);
+    }
+    
+    .about-section h3 {
+      color: #0073e6;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #0073e6;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .about-section p {
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .about-icon {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 115, 230, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: #0073e6;
+    }
+    
+    .team-section {
+      margin-bottom: 4rem;
+    }
+    
+    .team-section h3 {
+      font-size: 1.8rem;
+      color: #0073e6;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-section h3:after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background-color: #0073e6;
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .team-member {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+    
+    .member-img {
+      height: 250px;
+      background-color: #e9ecef;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .member-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .member-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #0073e6;
+      font-size: 1.2rem;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-info h4 {
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-size: 1.2rem;
+    }
+    
+    .member-info p.role {
+      color: #0073e6;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .member-info p.bio {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 4rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .comparison-table thead {
+      background-color: #0073e6;
+      color: white;
+    }
+    
+    .comparison-table th, 
+    .comparison-table td {
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #e9ecef;
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    .check-icon, .x-icon {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    .check-icon {
+      background-color: rgba(40, 167, 69, 0.1);
+      color: #28a745;
+    }
+    
+    .x-icon {
+      background-color: rgba(220, 53, 69, 0.1);
+      color: #dc3545;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, #0073e6 0%, #004a93 100%);
+      border-radius: 15px;
+      padding: 3rem;
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn-primary {
+      background-color: white;
+      color: #0073e6;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      .about-sections {
+        grid-template-columns: 1fr;
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      
+      .vision-mission, .cta-section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>K12PROJECT</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Fitur</a></li>
+        <li><a href="contact.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="about-container">
+    <div class="about-hero">
+      <h2>Tentang K12PROJECT</h2>
+      <p>Platform pendidikan video editing terbaik di Indonesia yang dirancang untuk membantu siapa saja mempelajari keterampilan editing video berkualitas profesional dengan metode pembelajaran yang interaktif dan efektif.</p>
+    </div>
+    
+    <div class="vision-mission">
+      <h3>Visi & Misi</h3>
+      <p>Visi kami adalah menjadi platform edukasi video editing nomor satu di Indonesia yang memungkinkan siapa saja mengembangkan keterampilan profesional tanpa batasan waktu dan tempat. Misi kami adalah memberikan akses pendidikan berkualitas tinggi dalam bidang video editing dengan harga terjangkau, kurikulum yang komprehensif, dan dukungan komunitas yang kuat.</p>
+    </div>
+    
+    <div class="about-sections">
+      <div class="about-section">
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+          </svg>
+        </div>
+        <h3>Pendidikan Berkualitas</h3>
+        <p>K12PROJECT menawarkan kurikulum terstruktur yang dirancang oleh para profesional industri video editing dengan pengalaman puluhan tahun. Materi kami selalu diperbarui mengikuti tren dan standar industri terkini.</p>
+      </div>
+      
+      <div class="about-section">
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z"/>
+          </svg>
+        </div>
+        <h3>Komunitas & Dukungan</h3>
+        <p>Bergabunglah dengan komunitas editor video terbesar di Indonesia. Para siswa kami mendapatkan akses ke forum diskusi, sesi Q&A langsung dengan instruktur, dan peluang networking profesional dengan para ahli industri.</p>
+      </div>
+      
+      <div class="about-section">
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12,15C7.58,15 4,16.79 4,19V21H20V19C20,16.79 16.42,15 12,15M8,9A4,4 0 0,0 12,13A4,4 0 0,0 16,9M11.5,2C11.2,2 11,2.21 11,2.5V5.5H10V3C10,3 7.75,3.86 7.75,6.75C7.75,6.75 7,6.89 7,8H17C16.95,6.89 16.25,6.75 16.25,6.75C16.25,3.86 14,3 14,3V5.5H13V2.5C13,2.21 12.8,2 12.5,2H11.5Z"/>
+          </svg>
+        </div>
+        <h3>Metodologi Inovatif</h3>
+        <p>Metodologi pembelajaran kami menggabungkan teori, praktik langsung, dan proyek dunia nyata. Kami percaya belajar dengan melakukan adalah cara terbaik untuk menguasai keterampilan editing video secara efektif.</p>
+      </div>
+    </div>
+    
+    <div class="team-section">
+      <h3>Tim Profesional Kami</h3>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="img/rizki.jpg" alt="Rizky Gusti" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;">
+          </div>
+          <div class="member-info">
+            <h4>Rizky gusti</h4>
+            <p class="role">Founder & Lead Instructor</p>
+            <p class="bio">Editor video berpengalaman 10+ tahun dengan spesialisasi di post-production dan visual effects. Alumni terbaik dari Universitas Muhammadiyah Yogyakarta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h3 style="text-align: center; margin-bottom: 2rem; color: #0073e6;">Mengapa Memilih K12PROJECT?</h3>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Fitur</th>
+          <th>K12PROJECT</th>
+          <th>Kompetitor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Materi Pembelajaran Interaktif</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="x-icon">✗</div></td>
+        </tr>
+        <tr>
+          <td>Konten Selalu Diperbarui</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="check-icon">✓</div></td>
+        </tr>
+        <tr>
+          <td>Harga Terjangkau</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="x-icon">✗</div></td>
+        </tr>
+        <tr>
+          <td>Dukungan Instruktur Langsung</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="x-icon">✗</div></td>
+        </tr>
+        <tr>
+          <td>Sertifikasi Profesional</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="x-icon">✗</div></td>
+        </tr>
+        <tr>
+          <td>Akses Seumur Hidup</td>
+          <td><div class="check-icon">✓</div></td>
+          <td><div class="x-icon">✗</div></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="cta-section">
+      <h3>Siap Untuk Memulai?</h3>
+      <p>Bergabunglah dengan ribuan siswa kami dan mulai perjalanan Anda menuju karier sebagai editor video profesional. Dapatkan akses ke materi pembelajaran berkualitas tinggi, dukungan komunitas, dan sertifikasi profesional yang diakui industri.</p>
+      <a href="#" class="btn-primary">Daftar Sekarang</a>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 K12PROJECT</p>
+  </footer>
+  
+  <script>
+    // Simple animation for sections when scrolling
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.about-section, .team-member');
+      
+      function checkScroll() {
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (sectionTop < windowHeight * 0.75) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      
+      // Set initial styles
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Check on load
+      checkScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkScroll);
+    });
+  </script>
+</body>
+</html>
